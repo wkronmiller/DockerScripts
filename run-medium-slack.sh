@@ -1,4 +1,5 @@
 #!/bin/bash
+source credentials.sh
 docker pull wkronmiller/medium-slack
 docker rm -f medium-slack
 docker run --name medium-slack -d --link hn-redis:redis \
