@@ -1,4 +1,5 @@
 #!/bin/bash
+source credentials.sh
 docker pull wkronmiller/discord-slack
 docker rm -f discord-slack
 docker run --name discord-slack -d --link hn-redis:redis \
@@ -8,5 +9,6 @@ docker run --name discord-slack -d --link hn-redis:redis \
     -e SLACK_TOKEN=$SLACK_DISCORD_TOKEN \
     -e SLACK_HOOK_URL=$SLACK_URL \
     -e SLACK_CHANNEL_ID='C38LB145A' \
+    -e SLACK_CHANNEL='discord-gennau' \
     -e SLACK_USER='U2MHZ4796' \
     wkronmiller/discord-slack
